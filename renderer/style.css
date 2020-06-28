@@ -1,3 +1,5 @@
-body {
-  background-color: #f4ffec;
+@import "bootstrap.css";
+
+.item-folder {
+  cursor: pointer;
 }
