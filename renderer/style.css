@@ -1,5 +1,13 @@
 @import 'bootstrap.css';
 
+html {
+  overflow-y: scroll;
+}
+
 .item-folder {
   cursor: pointer;
+}
+
+.hide {
+  display: none !important;
 }

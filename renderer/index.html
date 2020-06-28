@@ -9,10 +9,10 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3 menu">
+        <div class="col-4 menu">
           <h1>Load Folder</h1>
 
-          <form class="form-group">
+          <form class="form-path">
             <div class="form-group">
               <label for="path">Path</label>
               <input
@@ -22,10 +22,39 @@
                 value="/home/diego"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Show Files</button>
+            <div class="row mb-3">
+              <div class="col d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">
+                  Show Files
+                </button>
+                <button type="button" class="btn btn-success btn-create">
+                  Create File
+                </button>
+              </div>
+            </div>
           </form>
 
           <ul class="content list-group"></ul>
+        </div>
+        <div class="col create-file-panel">
+          <h2>Create File</h2>
+          <form class="form-create">
+            <div class="form-group">
+              <label for="filename">File name</label>
+              <input type="text" class="form-control" id="filename" />
+            </div>
+            <div class="form-group">
+              <label for="file-content">Content</label>
+              <textarea
+                class="form-control"
+                id="file-content"
+                rows="10"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">
+              Save
+            </button>
+          </form>
         </div>
       </div>
     </div>
