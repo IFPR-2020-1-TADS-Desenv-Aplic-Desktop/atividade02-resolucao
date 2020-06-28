@@ -4,24 +4,42 @@ const form = document.querySelector("form");
 const input = document.querySelector("#path");
 const content = document.querySelector(".content");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const path = input.value;
 
-  content.innerHTML = "";
+  loadFiles(path);
+});
 
+const loadFiles = async (path) => {
+  content.innerHTML = "";
   try {
     const dir = await fs.promises.opendir(path);
     for await (const dirent of dir) {
       const dir = dirent.isDirectory();
 
-      content.innerHTML += `<li class="list-group-item ${
-        dir ? "bg-info item-folder" : ""
-      }">${dirent.name}</li>`;
+      const li = document.createElement("li");
+      li.classList.add("list-group-item");
+      if (dir) {
+        li.addEventListener("click", () => selectEntry(dirent.name));
+        li.classList.add("bg-info");
+        li.classList.add("item-folder");
+      }
+      const value = document.createTextNode(dirent.name);
+      li.appendChild(value);
+      content.appendChild(li);
     }
   } catch (error) {
+    console.log(error);
+
     content.innerHTML =
       '<li class="list-group-item bg-danger">Error loading files!</li>';
   }
-});
+};
+
+const selectEntry = (entryName) => {
+  const newPath = `${input.value}/${entryName}`;
+  input.value = newPath;
+  loadFiles(newPath);
+};
