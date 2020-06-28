@@ -1,10 +1,9 @@
 const { app, BrowserWindow } = require('electron');
-const fs = require('fs');
 
 const createWindow = () => {
   let window = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 768,
     webPreferences: { nodeIntegration: true },
   });
   window.loadFile('renderer/index.html');
