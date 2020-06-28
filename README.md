@@ -1,5 +1,7 @@
 # Atividade 2 - Editor de Arquivos
 
+- [x] Resolução completa
+
 Considerando o projeto de leitura de um diretório começado na última aula, faça o seguinte:
 
 - Quando o usuário clicar no nome de um diretório na lista, o mesmo deve ser carregado na lista e no input.
